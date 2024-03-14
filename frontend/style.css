@@ -1,5 +1,5 @@
  
- #employeesList {
+ #employeesList, #departmentsList {
     width: 80%; /* Ancho del contenedor */
     margin: 20px auto; /* Margen superior e inferior automático, centrando horizontalmente */
     padding: 20px;
@@ -23,12 +23,22 @@ body {
 
  /* Estilos para el contenedor del formulario */
 .form-container {
-    width: 400px;
+    width: 800px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    display: flex; /* Establece el contenedor como flexbox */
+    justify-content: space-between; /* Distribuye los elementos alrededor */
+}
+
+.form-container > div {
+  width: 48%; /* Ancho de cada formulario */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
 /* Estilos para los campos de entrada */
@@ -44,7 +54,7 @@ body {
 
 .form-group input[type="text"],
 .form-group input[type="number"],
-.form-group textarea {
+.form-group textarea, .form-group select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -70,18 +80,18 @@ body {
 }
 
 /* Estilos para los divs generados */
-.employee-item {
+.employee-item , .department-item {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
   }
   
-  .employee-item p {
+  .employee-item p , .department-item  p{
     margin: 5px 0;
   }
   
-  .employee-item button {
+  .employee-item button , .department-item button{
     background-color: #007bff;
     color: #fff;
     padding: 5px 10px;
@@ -90,7 +100,11 @@ body {
     margin-right: 5px;
   }
   
-  .employee-item button:hover {
+  .employee-item button:hover , .department-item button:hover {
+    background-color: #0056b3;
+  }
+
+  .department-item button:hover , .department-item button:hover {
     background-color: #0056b3;
   }
 
