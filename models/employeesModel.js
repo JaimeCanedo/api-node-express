@@ -50,6 +50,17 @@ const deleteEmployee = async (id) => {
     }
 };
 
+// Función para mostrar los empleados que laboran en un departamento
+const getDepartmentByIdEmployee = async (id) => {
+    try {
+        const query = 'SELECT d.nombre,e.id_empleado FROM empleado e INNER JOIN departamento d ON d.id_departamento = e.id_departamento WHERE id_empleado = $1';
+        const values = [id];
+        const result = await pool.query(query, values);
+        return result.rows[0];
+     } catch (error){
+        throw error;
+     } 
+};
 
 export const employeesModel = {
     findAll, 
@@ -57,4 +68,5 @@ export const employeesModel = {
     createEmployee, 
     updateEmployee,
     deleteEmployee,
+    getDepartmentByIdEmployee,
 };

@@ -51,6 +51,18 @@ const deleteDepartment = async (id) => {
     }
 };
 
+// Función para mostrar los empleados que laboran en un departamento
+const getEmployeesByIdDepartment = async (id) => {
+    try {
+        const query = 'SELECT e.nombre,e.id_empleado,e.sueldo,d.id_departamento FROM departamento d,empleado e WHERE d.id_departamento = $1';
+        const values = [id];
+        const result = await pool.query(query, values);
+        return result.rows;
+     } catch (error){
+        throw error;
+     } 
+};
+
 
 export const DepartmentsModel = {
     findAll, 
@@ -58,4 +70,5 @@ export const DepartmentsModel = {
     createDepartment, 
     updateDepartment,
     deleteDepartment,
+    getEmployeesByIdDepartment,
 };

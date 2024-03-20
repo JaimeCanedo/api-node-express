@@ -67,10 +67,27 @@ const deleteEmployee = async (req, res) => {
     }
 };
 
+// Controlador para buscar el departamento de un empleado por su ID
+const getDepartmentByIdEmployee = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const empleado = await employeesModel.getDepartmentByIdEmployee(id);
+        if (empleado) {
+            res.json(empleado);
+        } else {
+            res.status(404).json({ message: 'Empleado no encontrado' });
+        }
+    } catch (error) {
+        console.error('Error al buscar empleado por ID:', error);
+        res.status(500).json({ message: 'Error interno del servidor' });
+    }
+};
+
 export const employeesController = {
     getAll,
     getEmployeeById, 
     createEmployee,
     updateEmployee,
     deleteEmployee,
+    getDepartmentByIdEmployee
 };

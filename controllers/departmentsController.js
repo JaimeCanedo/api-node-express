@@ -67,10 +67,28 @@ const deleteDepartment = async (req, res) => {
     }
 };
 
+// Controlador para buscar los empleados que son parte de un departamento
+const getEmployeesByIdDepartment = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const departamento = await DepartmentsModel.getEmployeesByIdDepartment(id);
+        if (departamento) {
+            res.json(departamento);
+        } else {
+            res.status(404).json({ message: 'Departamento no encontrado' });
+        }
+    } catch (error) {
+        console.error('Error al buscar empleados por ID department:', error);
+        res.status(500).json({ message: 'Error interno del servidor' });
+    }
+};
+
+
 export const departmentsController = {
     getAll,
     getDepartmentById, 
     createDepartment,
     updateDepartment,
     deleteDepartment,
+    getEmployeesByIdDepartment,
 };

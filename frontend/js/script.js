@@ -270,4 +270,4 @@ const deleteDepartment = async (id_departamento) => {
   }
 };
 
- window.onload = loadDepartments;
+//  window.onload = loadDepartments;

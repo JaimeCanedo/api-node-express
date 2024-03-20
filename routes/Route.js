@@ -10,13 +10,14 @@ router.get('/employees/:id', employeesController.getEmployeeById);
 router.post('/employees/', employeesController.createEmployee);
 router.put('/employees/:id', employeesController.updateEmployee);
 router.delete('/employees/:id', employeesController.deleteEmployee);
+router.get('/employees/departments/:id', employeesController.getDepartmentByIdEmployee);
 
 router.get('/departments/', departmentsController.getAll);
 router.get('/departments/:id', departmentsController.getDepartmentById);
 router.post('/departments/', departmentsController.createDepartment);
 router.put('/departments/:id', departmentsController.updateDepartment);
 router.delete('/departments/:id', departmentsController.deleteDepartment);
-
+router.get('/departments/employees/:id', departmentsController.getEmployeesByIdDepartment);
 
 export default router;
 
